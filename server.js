@@ -5,7 +5,10 @@ const  bodyParser = require('body-parser');
 
 const app = express();
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended:false }));
+app.use(bodyParser.urlencoded({ extended: true }));
+
+//give server access to static files generated at yarn build in client
+app.use(express.static('./client/first_azure_app/build'));
 
 
 
@@ -14,7 +17,7 @@ app.use('/api/thoughts/', require('./server/routes/thoughts-routes'));
 
 //get route for server.js to serve index.html to clients
 app.get('/*', (req, res) => {
-    res.sendFile('index.html', { root: __dirname });
+    res.sendFile('index.html', { root: __dirname + '/client/first_azure_app/build/' });
 });
 
 
