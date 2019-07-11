@@ -3,3 +3,7 @@
 App for practice deploying a MERN stack app to Microsoft Azure
 
 
+## Tech
+
+Azure Cosmos DB
+
